@@ -1,6 +1,5 @@
-// Simple static website server for Render.
-// Serves your site's files (for example, index.html) without accounts,
-// registration, login, databases, or user-data endpoints.
+// Simple static website server for Render using Express 5.
+// No account creation, login, registration, or database endpoints.
 
 const express = require("express");
 const path = require("path");
@@ -9,31 +8,32 @@ const app = express();
 const PORT = process.env.PORT || 10000;
 const SITE_DIR = __dirname;
 
-// Basic security headers for a static site.
 app.disable("x-powered-by");
-app.use((req, res, next) => {
+
+// Basic security headers for a static site.
+app.use((_req, res, next) => {
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
   res.setHeader("X-Frame-Options", "SAMEORIGIN");
   next();
 });
 
-// Render health-check endpoint.
+// Render health check.
 app.get("/health", (_req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
-// Serve static files from the same directory as this server.js.
-// Put index.html, CSS, JS, images, etc. beside server.js.
+// Serve index.html, CSS, JavaScript, images, and other static assets.
 app.use(express.static(SITE_DIR, {
   index: "index.html",
   extensions: ["html"],
   dotfiles: "ignore"
 }));
 
-// If a requested page isn't found, show the site's homepage.
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(SITE_DIR, "index.html"), (err) => {
+// Express 5 catch-all: use middleware instead of app.get("*").
+app.use((_req, res) => {
+  const homepage = path.join(SITE_DIR, "index.html");
+  res.sendFile(homepage, (err) => {
     if (err && !res.headersSent) {
       res.status(404).send("index.html was not found. Add it beside server.js.");
     }
@@ -41,5 +41,5 @@ app.get("*", (_req, res) => {
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Static site server listening on port ${PORT}`);
+  console.log(`Website server listening on port ${PORT}`);
 });
