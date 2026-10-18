@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +88,8 @@
       display: flex; align-items: end; justify-content: space-between; gap: 24px;
     }
     .big-cta h2 { font-size: clamp(38px, 7vw, 78px); letter-spacing: -.08em; line-height: .95; margin: 20px 0 0; }
-    .darkbtn { background: var(--ink); color: white; border: 0; padding: 16px 20px; cursor: pointer; white-space: nowrap; font-size: 12px; }
+    .darkbtn { display: inline-block; background: var(--ink); color: white; border: 0; padding: 16px 20px; cursor: pointer; white-space: nowrap; font-size: 12px; }
+    .email-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
     footer { padding: 30px 0 40px; display: flex; justify-content: space-between; gap: 20px; align-items: center; color: #777; font-size: 10px; }
     .footlogo { font-size: 20px; font-weight: 900; color: #111; letter-spacing: -1px; }
     @media (max-width: 650px) {
@@ -115,7 +117,7 @@
       <nav class="links" aria-label="Main navigation">
         <a class="navabout" href="#about">About</a>
         <a class="navabout" href="#values">Our approach</a>
-        <a class="contact" href="#contact">Let's talk ↗</a>
+        <a class="contact" href="mailto:bbroot@mailbox.org?subject=Let's%20talk%20with%20BBROOT">Let's talk ↗</a>
       </nav>
     </header>
 
@@ -169,13 +171,14 @@
           <div class="eyebrow" style="color:#202020">YOUR NEXT CHAPTER STARTS HERE</div>
           <h2>Let's grow<br>something real.</h2>
         </div>
-        <a class="darkbtn" href="mailto:hello@bbroot.com?subject=Let's%20connect%20with%20BBROOT">GET IN TOUCH ↗</a>
+        <a class="darkbtn" href="mailto:bbroot@mailbox.org?subject=Get%20in%20touch%20with%20BBROOT">GET IN TOUCH ↗</a>
       </section>
     </main>
 
     <footer>
       <a class="footlogo" href="#home">BBROOT<span class="green">.</span></a>
       <span>Rooted in ideas. Ready for what's next.</span>
+      <span>Contact: <a class="email-link" href="mailto:bbroot@mailbox.org">bbroot@mailbox.org</a></span>
       <span>© 2026 BBROOT</span>
     </footer>
   </div>
