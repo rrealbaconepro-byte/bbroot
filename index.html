@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BBROOT — rooted in ideas, ready for what's next.">
+  <title>BBROOT — Ideas Take Root Here</title>
+  <style>
+    :root {
+      --green: #a3d92b;
+      --ink: #151515;
+      --muted: #666;
+      --line: #eaeaea;
+      --paper: #fff;
+      --soft: #f6f6f3;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1180px; margin: auto; padding: 0 28px; }
+    .nav {
+      height: 78px; display: flex; align-items: center;
+      justify-content: space-between; border-bottom: 1px solid var(--line);
+    }
+    .logo { font-size: 25px; font-weight: 900; letter-spacing: -1.8px; }
+    .green { color: var(--green); }
+    .links { display: flex; align-items: center; gap: 30px; font-size: 12px; color: #555; }
+    .contact {
+      background: var(--ink); color: white !important;
+      border-radius: 3px; padding: 13px 18px;
+    }
+    .hero { padding: 100px 0 75px; }
+    .eyebrow {
+      font-size: 10px; letter-spacing: 2.5px; font-weight: 700;
+      text-transform: uppercase; color: #555;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); display: inline-block; }
+    h1 {
+      font-size: clamp(60px, 10vw, 120px); line-height: .9;
+      letter-spacing: -.09em; font-weight: 700; margin: 35px 0 27px;
+      max-width: 900px;
+    }
+    .hero-bottom { display: flex; justify-content: space-between; align-items: end; gap: 24px; }
+    .desc { font-size: 15px; line-height: 1.8; color: var(--muted); max-width: 370px; }
+    .btn {
+      display: inline-flex; gap: 24px; align-items: center;
+      padding: 16px 20px; background: var(--green); color: #111;
+      border-radius: 3px; font-size: 12px; font-weight: 700;
+    }
+    .art {
+      height: 270px; margin-top: 65px; background: var(--ink);
+      position: relative; overflow: hidden; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .art::before, .art::after {
+      content: ""; position: absolute; border: 1px solid #424242;
+      border-radius: 50%; width: 500px; height: 500px;
+    }
+    .art::after { width: 340px; height: 340px; }
+    .artword {
+      font-size: clamp(60px, 13vw, 140px); font-weight: 900;
+      letter-spacing: -.1em; color: var(--green); z-index: 1;
+    }
+    .artlabel { position: absolute; bottom: 20px; left: 22px; color: #aaa; font-size: 9px; letter-spacing: 2px; }
+    .artnum { position: absolute; right: 22px; top: 20px; color: #aaa; font-size: 10px; }
+    .section { padding: 85px 0; border-bottom: 1px solid #eee; }
+    .section-head { display: flex; justify-content: space-between; gap: 30px; align-items: start; margin-bottom: 38px; }
+    h2 { font-size: clamp(36px, 6vw, 65px); letter-spacing: -.07em; line-height: 1; margin: 20px 0; }
+    .section-copy { max-width: 370px; color: var(--muted); line-height: 1.8; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .tile {
+      background: var(--soft); padding: 26px; min-height: 205px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .num { font-size: 10px; color: #777; }
+    h3 { font-size: 22px; letter-spacing: -1px; margin: 20px 0 10px; }
+    .tile p { font-size: 12px; line-height: 1.7; color: var(--muted); margin: 0; }
+    .big-cta {
+      background: var(--green); padding: 54px 38px; margin: 75px 0;
+      display: flex; align-items: end; justify-content: space-between; gap: 24px;
+    }
+    .big-cta h2 { font-size: clamp(38px, 7vw, 78px); letter-spacing: -.08em; line-height: .95; margin: 20px 0 0; }
+    .darkbtn { background: var(--ink); color: white; border: 0; padding: 16px 20px; cursor: pointer; white-space: nowrap; font-size: 12px; }
+    footer { padding: 30px 0 40px; display: flex; justify-content: space-between; gap: 20px; align-items: center; color: #777; font-size: 10px; }
+    .footlogo { font-size: 20px; font-weight: 900; color: #111; letter-spacing: -1px; }
+    @media (max-width: 650px) {
+      .wrap { padding: 0 19px; }
+      .nav { height: 68px; }
+      .links { gap: 13px; }
+      .navabout { display: none; }
+      .links .contact { padding: 11px; font-size: 11px; }
+      .hero { padding: 76px 0 45px; }
+      .hero-bottom { align-items: start; flex-direction: column; }
+      .art { height: 205px; margin-top: 42px; }
+      .section { padding: 60px 0; }
+      .section-head { flex-direction: column; gap: 10px; }
+      .grid { grid-template-columns: 1fr; }
+      .tile { min-height: 165px; }
+      .big-cta { padding: 30px 23px; align-items: start; flex-direction: column; margin: 50px 0; }
+      footer { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a href="#home" class="logo">BB<span class="green">R</span>OOT.</a>
+      <nav class="links" aria-label="Main navigation">
+        <a class="navabout" href="#about">About</a>
+        <a class="navabout" href="#values">Our approach</a>
+        <a class="contact" href="#contact">Let's talk ↗</a>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span> Independent by nature. Bold by design.</div>
+        <h1>Ideas take<br>root <span class="green">here.</span></h1>
+        <div class="hero-bottom">
+          <p class="desc">Welcome to BBROOT. A fresh perspective, a clear vision, and the freedom to build something meaningful. This is where your next chapter begins.</p>
+          <a class="btn" href="#about">DISCOVER BBROOT <span>↘</span></a>
+        </div>
+        <div class="art" aria-label="BBROOT brand banner">
+          <div class="artnum">EST. 20XX — BUILT TO GROW</div>
+          <div class="artword">BBROOT<span style="color:#fff">.</span></div>
+          <div class="artlabel">A DIFFERENT KIND OF ROOTS.</div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="eyebrow"><span class="dot"></span> 01 / WHO WE ARE</div>
+        <div class="section-head">
+          <h2>Grounded in purpose.<br>Open to <span class="green">possibility.</span></h2>
+          <p class="section-copy">BBROOT is a brand built around a simple belief: great things start with a strong foundation. We're here to make our mark, challenge the ordinary, and grow with intention.<br><br>Our story is still being written. We'd love for you to be part of it.</p>
+        </div>
+      </section>
+
+      <section class="section" id="values">
+        <div class="eyebrow"><span class="dot"></span> 02 / WHAT DRIVES US</div>
+        <div class="section-head">
+          <h2>Small details.<br><span class="green">Big picture.</span></h2>
+          <p class="section-copy">A simple philosophy that shapes how BBROOT shows up in the world.</p>
+        </div>
+        <div class="grid">
+          <article class="tile">
+            <span class="num">01 — THE FOUNDATION</span>
+            <div><h3>Stay authentic.</h3><p>Know who you are. Build on what matters. Never lose sight of the roots.</p></div>
+          </article>
+          <article class="tile">
+            <span class="num">02 — THE MINDSET</span>
+            <div><h3>Think forward.</h3><p>Keep exploring, stay curious, and make room for better ideas.</p></div>
+          </article>
+          <article class="tile">
+            <span class="num">03 — THE MISSION</span>
+            <div><h3>Grow together.</h3><p>Strong foundations create space for lasting relationships and new possibilities.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="big-cta" id="contact">
+        <div>
+          <div class="eyebrow" style="color:#202020">YOUR NEXT CHAPTER STARTS HERE</div>
+          <h2>Let's grow<br>something real.</h2>
+        </div>
+        <a class="darkbtn" href="mailto:hello@bbroot.com?subject=Let's%20connect%20with%20BBROOT">GET IN TOUCH ↗</a>
+      </section>
+    </main>
+
+    <footer>
+      <a class="footlogo" href="#home">BBROOT<span class="green">.</span></a>
+      <span>Rooted in ideas. Ready for what's next.</span>
+      <span>© 2026 BBROOT</span>
+    </footer>
+  </div>
+</body>
+</html>
